@@ -51,7 +51,7 @@ const useGlobalState = <T>(key: string, initialState?: T) => {
   return result as [value: T, updateValue: typeof updateValue];
 };
 
-const createGlobalStore = <T>(key: string, initialState?: T) => useGlobalState<T>(key, initialState)
+const createGlobalStore = <T>(key: string, initialState?: T) => () => useGlobalState<T>(key, initialState)
 
 
 export {useGlobalState, createGlobalStore};
