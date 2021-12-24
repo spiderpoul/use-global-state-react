@@ -8,6 +8,8 @@ Just use `useGlobalState`, it's really simple and does all the magic for you:
 - first argument is a key for your store
 - second argument is optional - initial value
 
+Try [Codesandbox example](https://codesandbox.io/s/boring-cerf-j4ub4)
+
 ### Example:
 ```ts
 import { useGlobalState } from 'use-global-state-react';
