@@ -1,6 +1,6 @@
 {
   "name": "use-global-state-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple useGlobalState hook for react",
   "license": "MIT",
   "repository": "github:spiderpoul/use-global-state-react",

@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, Dispatch, SetStateAction } from 'react';
 
 const GLOBAL_STORE_CHANGE_EVENT = '__GLOBAL_STORE_CHANGE_EVENT__';
 
@@ -13,10 +13,10 @@ const dispatchEvent = <T>(key: string, value: T) => {
 const useGlobalState = <T>(key: string, initialState?: T) => {
   const [value, setValue] = useState(initialState);
 
-  const updateValue = useCallback((newValue: T | ((prev?: T) => T)) => {
+  const updateValue: Dispatch<SetStateAction<T>> = useCallback((newValue) => {
     if (typeof newValue === 'function') {
       setValue((prev) => {
-        const computedNewValue = (newValue as (prev?: T) => T)(prev);
+        const computedNewValue = (newValue as (prev: T) => T)(prev as T);
         dispatchEvent(key, computedNewValue);
 
         return computedNewValue;
